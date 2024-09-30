@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Multas</title>
+    <style>
+        body {
+            font: normal 20pt Luminari, fantasy;
+        }
+
+        input {
+            font: normal 18pt Arial;
+            width: auto; /* Flexible width */
+        }
+
+        #res {
+            margin-top: 30px;
+        }
+
+        #res p {
+            margin: 0; /* Remove default margins */
+        }
+
+        #res .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    Velocidade do carro: <input type="number" id="txtVel" name="txtvel"> Km/h
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res"></div>
+
+    <script>
+        function calcular() {
+            const txtVelInput = document.getElementById('txtVel');
+            const resDiv = document.getElementById('res');
+
+            try {
+                const vel = parseFloat(txtVelInput.value);
+
+                if (isNaN(vel)) {
+                    throw new Error('Valor inválido. Insira um número.');
+                }
+
+                resDiv.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}</strong> Km/h</p>`;
+
+                if (vel > 60) {
+                    resDiv.innerHTML += `<p class="error">Você está multado por excesso de velocidade!</p>`;
+                } else {
+                    resDiv.innerHTML += `<p>Parabéns! Você está dentro do limite de velocidade.</p>`;
+                }
+            } catch (error) {
+                resDiv.innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

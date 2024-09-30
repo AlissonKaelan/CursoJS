@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro passo com DOM</title>
+    <style>
+        body{
+            background-color: blue;
+            color: white;
+            font: 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Inicio do usó do DO
+    </h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo o udo do <strong>DOM</strong> em JavaScript</p>
+    <div id="msg">Clique em mim</div>
+    
+    <script>
+        //document.write(document.URL)
+        //document.write(navigator.appName)
+        var corpo = document.body
+        var p1 = document.getElementsByTagName('p1')[1]
+       /*
+        var d = document.getElementById('msg') //vai acesar o id da div
+        d.style.background = 'green' //backgroud stylo will turn green or any color between apóstrofo 
+        d.innerText = 'Estou aguardando....' //Alterar mensagem da div "clique em mim"
+        */
+       /*var d = document.getElementsByName('msg')[0]
+       d.innerText= 'Olá'*/
+       var d = document.querySelector('div#msg')
+       d.style.background = 'green'
+    </script>
+</body>
+</html>
